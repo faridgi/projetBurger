@@ -78,6 +78,21 @@
 
         ?>
     </div>
+    <div class="theme-color fixed">
+        <div class="teal"></div>
+        <div class="red"></div>
+        <div class="green"></div>
+        <div class="blue"></div>
+        <div class="black"></div>
+        <div class="yellow"></div>
+        <div class="orange"></div>
+        <div class="grey"></div>
+        <div class="purple"></div>
+        <div class="magenta"></div>
+        <div class="brown"></div>
+        <div class="pink"></div>
+    </div>
 </body>
+<script src="js/theme.js"></script>
 
 </html>

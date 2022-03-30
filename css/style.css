@@ -1,3 +1,7 @@
+:root{
+    --main-color: teal;
+}
+
 body {
     background: url(../images/bg.png);
 }
@@ -39,6 +43,12 @@ body {
 .img-thumbnail img {
     background: #e4e9f3;
 	width: 100%;
+}
+div.img-thumbnail:hover{
+    transform: scale(1.01);
+    background-color: var(--main-color);
+    border: 2px solid var(--main-color);
+    cursor: pointer;
 }
 .img-thumbnail .price {
     background: #5cb85c;
@@ -93,4 +103,25 @@ body {
 
 .help-inline{
     color:  red;
+}
+
+/** THEME****************************/
+.theme-color{
+    right: 20px;
+    color: white;
+    bottom: 100px;
+}
+
+.theme-color div{
+    background-color: red;
+    padding: 10px;
+    margin: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.fixed{
+   position: fixed; 
 }
