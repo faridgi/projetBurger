@@ -10,10 +10,11 @@
         $price              = checkInput($_POST['price']);
         $category           = checkInput($_POST['category']);
         $image              = checkInput($_FILES['image']['name']);
-        $imagePath          = '../images/' .basename($image);
+        $uniqueName         = uniqid('', true).basename($image);
+        $imagePath          = '../images/'.$uniqueName;
         $imageExtension     = pathinfo($imagePath, PATHINFO_EXTENSION);
         $isSuccess          = true;
-        $isUploadSuccess   = false;
+        $isUploadSuccess    = false;
 
         if(empty($name))
         {
@@ -68,7 +69,7 @@
         {
             $db = Database::connect();
             $statement = $db->prepare("INSERT INTO items (name,description,price,category,image) values(?, ?, ?, ?, ?)");
-            $statement->execute(array($name,$description,$price,$category,$image));
+            $statement->execute(array($name,$description,$price,$category,$uniqueName));
             Database::disconnect();
             header("Location: index.php");
         }

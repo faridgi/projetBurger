@@ -15,7 +15,8 @@
         $price              = checkInput($_POST['price']);
         $category           = checkInput($_POST['category']); 
         $image              = checkInput($_FILES["image"]["name"]);
-        $imagePath          = '../images/'. basename($image);
+        $uniqueName         = uniqid('', true).basename($image);
+        $imagePath          = '../images/'.$uniqueName;
         $imageExtension     = pathinfo($imagePath,PATHINFO_EXTENSION);
         $isSuccess          = true;
     
@@ -43,11 +44,11 @@
             $isImageUpdated = true;
             $isUploadSuccess = true;
             if($imageExtension != "jpg" && $imageExtension != "png" && $imageExtension != "jpeg" && $imageExtension != "gif" ) {
-                $imageError = "Les fichiers autorises sont: .jpg, .jpeg, .png, .gif";
+                $imageError = "Les fichiers autorisés sont: .jpg, .jpeg, .png, .gif";
                 $isUploadSuccess = false;
             }
             if(file_exists($imagePath)) {
-                $imageError = "Le fichier existe deja";
+                $imageError = "Le fichier éxiste déjà";
                 $isUploadSuccess = false;
             }
             if($_FILES["image"]["size"] > 500000) {
@@ -68,7 +69,7 @@
             if($isImageUpdated)
             {
                 $statement = $db->prepare("UPDATE items set name = ?, description = ?, price = ?, category = ?, image = ? WHERE id = ?");
-                $statement->execute(array($name,$description,$price,$category,$image,$id));  
+                $statement->execute(array($name,$description,$price,$category,$uniqueName,$id));  
             }
             else
             {
