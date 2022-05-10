@@ -12,7 +12,7 @@ body {
     font-family: 'Holtwood One SC', sans-serif;
     color: #e7480f;
     text-shadow: 2px 2px #ffd301;
-    font-size: 50px;
+    /* font-size: 50px; */
     padding: 40px 0px;
     text-align: center;
 }
@@ -109,7 +109,7 @@ div.img-thumbnail:hover{
 .theme-color{
     right: 20px;
     color: white;
-    bottom: 100px;
+    bottom: 10px;
 }
 
 .theme-color div{
